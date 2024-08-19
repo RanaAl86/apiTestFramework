@@ -9,6 +9,8 @@ import static io.restassured.RestAssured.given;
 
 public class TestsExample {
 
+
+
     @Test
     public void test_1() {
         Response response = given().get("https://reqres.in/api/users?page=1");

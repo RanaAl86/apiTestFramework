@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.example</groupId>
-    <artifactId>apiTestFramework</artifactId>
+    <artifactId>api-automation-framework</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source> <!-- We can change to 21 if needed -->
+        <maven.compiler.target>17</maven.compiler.target> <!-- We can change to 21 if needed -->
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-bom</artifactId>
+                <version>7.18.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.18.0</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -49,6 +63,11 @@
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
+            <artifactId>gherkin</artifactId>
+            <version>26.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>7.11.0</version>
         </dependency>
@@ -77,4 +96,19 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins> <!-- Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
