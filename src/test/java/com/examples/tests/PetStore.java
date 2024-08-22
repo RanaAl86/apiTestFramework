@@ -24,7 +24,7 @@ public class PetStore {
     }
 
 
-    @Test(priority = 1)
+    @Test()
     public void createUser() {
         // Create JSON payload
         Map<String, Object> userInfo = new HashMap<>();
@@ -34,6 +34,7 @@ public class PetStore {
         userInfo.put("email", "lili123@lili.com");
         userInfo.put("password", "aaa123");
         userInfo.put("phone", "0123456789");
+
 
         //Send POST request and get response
         Response response = given().contentType(ContentType.JSON)
@@ -46,12 +47,12 @@ public class PetStore {
                 .extract()
                 .response();
 
-//        response.prettyPrint();
-        System.out.println("Create user Response body: " + response.prettyPrint());
+        response.prettyPrint();
+//        System.out.println("Create user Response body: " + response.prettyPrint());
     }
 
 
-    @Test(priority = 2)
+    @Test()
     public void logIn() {
         Response response = given().accept(ContentType.JSON)
                 .queryParam("username", "Lili123")
@@ -75,7 +76,7 @@ public class PetStore {
     }
 
 
-    @Test(priority = 3)
+    @Test()
     public void deleteUser() {
         Response response = given()
                 .pathParam("username", "Lili123")
@@ -102,6 +103,7 @@ public class PetStore {
         String phone = faker.phoneNumber().cellPhone();
 //        String artist = faker.artist().name();  ---> This is just an example of how you add the data from JavaFaker
 //        System.out.println("artist = " + artist);
+
 
         System.out.println("JF username: " + username);
         System.out.println("JF firstName: " + firstName);

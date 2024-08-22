@@ -10,6 +10,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true) //
 public class ZipCode_POJO {
 
+    // getters and setter (to read and update data)
     @JsonProperty("country abbreviation")
     private String countryAbbreviation;
 

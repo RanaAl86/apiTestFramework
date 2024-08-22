@@ -48,5 +48,4 @@ public class ApiStepDef {
         Assert.assertEquals(actualState, state);
     }
 
-
 }
