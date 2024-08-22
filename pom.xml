@@ -82,7 +82,7 @@
             <artifactId>lombok</artifactId>
             <version>1.18.26</version>
         </dependency>
-        <!-- JavaFaker - to create fake data for our tests -->
+        <!-- JavaFaker - to create/generate fake data for our tests -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>

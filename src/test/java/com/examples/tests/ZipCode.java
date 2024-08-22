@@ -19,7 +19,6 @@ public class ZipCode extends ZipCodeBaseUrl {
     @Test
     public void test1() {
 
-//        String zipCode = "20872";
 //        -->  we can also call it from config.properties file
         String zipCode = ConfigManager.getProperty("zipCode"); // -->  we can also call it from config.properties file
 
@@ -65,7 +64,7 @@ public class ZipCode extends ZipCodeBaseUrl {
 
         JsonPath jsonPath = given().contentType(ContentType.JSON)
                 .when()
-                .get("/us/va/Richmond")
+                .get("/us/fl/Tampa")
                 .then()
                 .assertThat()
                 .statusCode(200)
@@ -80,13 +79,17 @@ public class ZipCode extends ZipCodeBaseUrl {
 
 
         Map<String, Object> secondPlace = allPlaces.get(1); // index num starts from 0 inside 'places' in response body
-        Assert.assertEquals(secondPlace.get("post code"), "23201");
-        Assert.assertTrue(secondPlace.get("place name").equals("Richmond"));
+        Assert.assertEquals(secondPlace.get("post code"), "33602");
+        Assert.assertTrue(secondPlace.get("place name").equals("Tampa"));
+
+        Map<String, Object> forthPlace = allPlaces.get(3); // index num starts from 0 inside 'places' in response body
+        Assert.assertEquals(forthPlace.get("post code"), "33604");
+        Assert.assertTrue(forthPlace.get("place name").equals("Tampa"));
 
         String state = jsonPath.getString("state");
         String country = jsonPath.getString("country");
 
-        Assert.assertTrue(state.equals("Virginia"));
+        Assert.assertTrue(state.equals("Florida"));
         Assert.assertEquals(country, "United States");
 
         System.out.println("Country is: " + country);

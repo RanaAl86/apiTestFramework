@@ -1,5 +1,6 @@
 Feature: Get information from a specific zipcode
 
+
   Scenario: Retrieve information for zipcode 20872
     Given I have the zipcode "20872"
     When I send a Get request to the zipcode API
