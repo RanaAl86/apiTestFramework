@@ -1,4 +1,4 @@
-package com.examples.tests;
+package com.examples.tests.platzi;
 
 import com.examples.utilities.PlatziUrl;
 import io.restassured.http.ContentType;
